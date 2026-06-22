@@ -46,7 +46,7 @@ Classical methods are **foundational** and widely studied.
 - Binary Search 
 - Key Transformation Search (**Hashing**???) (Best performance on most scenarios)
 
-## Sequencial Search 
+## Sequential Search 
 
 Lineal search from `index 0 to n - 1`, suitable for unsorted datasets.
 
@@ -54,12 +54,35 @@ Lineal search from `index 0 to n - 1`, suitable for unsorted datasets.
 - **Worts case:** O(n)
 - **Avg case:** O(n)
 
+```c
+int sequentialSearch(int data[], int x, int size) {
+    for (int i = 0; i < size; i++) {
+        if (data[i] == x) return i; // found
+    }
+    return -1; // not found
+}
+```
+
+
 ## Binary Search 
 
+**Prerequsite**: The dataset must be sorted. Uses divide-and-conquer strategy, cutting the space in half on each iteration.
 
+mid = floor((low + high)/2)
 
+- **Performance**: O(log n)
 
+## Key Transformation Search (Hashing)
 
+Hashing uses mapping (from cardinal to polar) equivalence from fn to gn context. In computing mapping is a representantion from the dataset itself. 
 
+A key runs through to compute it's position arrat index directly. (???)
+
+**Example:**
+
+Search key: 845 ---> f(key)= key mod(10) ---> Target Index 5
+
+- **Idealized Mapping**: Target Complexity O(1).
+- **Operational Challenge**:  Multiple independent keys mapping to match slots triggers index assignment conflicts.
 
 
