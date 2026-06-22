@@ -72,6 +72,28 @@ mid = floor((low + high)/2)
 
 - **Performance**: O(log n)
 
+```c
+int binarySearch(int data[], int x, int size) {
+   
+    int left = 0;
+    int right = size - 1;
+
+    while (left <= right) {
+        int pivot = (int)((left + right) / 2);
+        if (data[pivot] == x) {
+            return pivot;
+        }
+        else if (data[pivot] > x) {
+            right = pivot - 1;
+        }
+        else {
+            left = pivot + 1;
+        }
+    }
+    return -1;
+}
+```
+
 ## Key Transformation Search (Hashing)
 
 Hashing uses mapping (from cardinal to polar) equivalence from fn to gn context. In computing mapping is a representantion from the dataset itself. 
