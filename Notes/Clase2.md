@@ -111,4 +111,4 @@ Each slot in the main table functions as a head pointer to a Singly Linked list.
 - **Average Case**: O(1) assuming even, uniform distribution of key entries.
 - **Worst Case**: O(n) access operations, if all inserted keys collide into the exact same index link sequence.
 
-Note: to keep Design focus performant, monitor table density profiles. Rehash the entire table into a larger footprint when alpha > 0.75
+Note: to keep Design focus performant, monitor table density profiles. Rehash the entire table into a larger footprint when alpha > 0.75.
