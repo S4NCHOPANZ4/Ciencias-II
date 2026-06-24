@@ -1,0 +1,23 @@
+Dictionary Lookup
+
+Las palabras están ordenadas alfabéticamente.
+
+Responder consultas.
+
+Entrada
+
+apple
+banana
+car
+dog
+egg
+
+Consultas
+
+car
+cat
+
+Salida 
+
+Yes
+No

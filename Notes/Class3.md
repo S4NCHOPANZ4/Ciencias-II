@@ -8,6 +8,8 @@
 - In-Memory Indexing
 
 
+
+
 **Note**:
 
 **Internals**: Lineal, Binary, Hashing
@@ -77,5 +79,4 @@ An auxiliary Structure re orders tables based on keys (???), but it does not aff
 - Grid Structure O(1) Avg - Space High Array Scale  - Dimensional Multi-D coordinates
 - k-d Spatial Tree O(Log n)  - Space Linear - Dimensional k-Dimensions
 
-
-
+**Note**: Best Utility Table indexation
