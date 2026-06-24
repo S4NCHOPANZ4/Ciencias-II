@@ -8,7 +8,7 @@ struct Node{
     struct Node* next;
 };
 
-struct Node* hashmap[SLOTS];
+struct Node* hashtable[SLOTS];
 
 int hashfn(int key){
     int slot = key % SLOTS;
@@ -19,13 +19,13 @@ void insert(int key){
     int slot  = hashfn(key);
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = key;
-    newNode->next = hashmap[slot];
-    hashmap[slot] = newNode;
+    newNode->next = hashtable[slot];
+    hashtable[slot] = newNode;
 }
 
 int search(int key){
     int slot  = hashfn(key);
-    struct Node* temp = hashmap[slot];
+    struct Node* temp = hashtable[slot];
     while(temp != NULL){
         if(temp->data == key) return slot;
         temp = temp->next;
@@ -35,12 +35,12 @@ int search(int key){
 
 int delete(int key){
     int slot = hashfn(key);
-    struct Node* temp = hashmap[slot];
+    struct Node* temp = hashtable[slot];
     struct Node* prev = NULL;
     while(temp != NULL){
         if(temp->data == key){
             if(prev == NULL){
-                hashmap[slot] = temp->next;
+                hashtable[slot] = temp->next;
             }else{
                 prev->next = temp->next;
             }
