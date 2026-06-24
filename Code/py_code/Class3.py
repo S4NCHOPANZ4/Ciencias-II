@@ -27,6 +27,14 @@ def insert(key: int):
     slot = hash_fn_mod(key)
     hash_table[slot].append(key)
 
+def search(key: int) -> int:
+    slot = hash_fn_mod(key)
+    if key in hash_table[slot]:
+        return slot
+    else:
+        return -1
+
+
 
 #print(hash_fn_midSquare(300))
 print(hash_fn_truncate(20242020194))
