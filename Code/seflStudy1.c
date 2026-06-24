@@ -1,4 +1,3 @@
-#include "selfstudy_1.h"
 #include <stdio.h>
 /*
  #include <string.h>
@@ -147,7 +146,7 @@ int binarySearch(int data[], int x, int size) {
 	return -1;
 }
 
-void  execSS1() {
+int main() {
 	int data[] = { 1,2,3,4,5,6 };
 	int longitud = sizeof(data) / sizeof(data[0]);
 	printf("The result is: %d", binarySearch(data, 3, longitud));

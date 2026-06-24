@@ -8,6 +8,7 @@ int hashTable[SLOTS][5];
 void init() {
 	for (int i = 0; i < SLOTS; i++) {
 		for (int j = 0; j < 5; j++) {
+
 			hashTable[i][j] = -1;
 		}
 	}
@@ -21,8 +22,8 @@ int hash_fn(int key) {
 void insert(int key) {
 	int slot = hash_fn(key);
 	for (int i = 0; i < 5; i++) {
-		if (hashTable[slot][0] != -1) {
-			hashTable[slot][0] = key;
+		if (hashTable[slot][i] == -1) {
+			hashTable[slot][i] = key;
 			break;
 		}
 	}
@@ -31,7 +32,7 @@ void insert(int key) {
 int search(int key) {
 	int slot = hash_fn(key);
 	for (int i = 0; i < 5; i++) {
-		if (hashTable[key] == -1) {
+		if (hashTable[slot][i] == -1) {
 			return -1;
 		}
 		else {
@@ -59,7 +60,7 @@ int main() {
 	insert(543);
 	insert(1);
 	printTable();
-	printf("print for 3 is %d", search(3));
+	printf("print for 1 is %d", search(1));
 	return 0;
 }
 

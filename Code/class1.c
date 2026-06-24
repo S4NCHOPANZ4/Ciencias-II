@@ -2,7 +2,6 @@
     #include <stdio.h> : Used on all default C code, used for interacting with the os console.
         Note: It is crucial to memorize many C libraries.
 */
-#include "Class_1.h"
 #include <stdio.h>
 
 /*
@@ -53,7 +52,7 @@ int binarySearchh(int data[], int x, int size) {
 
 
 // main fn to execute code;
-void  execClass1() {
+int   main() {
     int data[] = { 1,2,3,4,5,6 };
     int size = 6;
     // Note: on printf {letter}%, {d} -> integrer
