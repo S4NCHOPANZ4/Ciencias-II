@@ -1,12 +1,14 @@
 # Hashing done in python 
 
-slots = 10
+slots: int = 10
 
-hash_table = []
+hash_table = {}
 
-def init():
-    for i in range(slots):
-        hash_table.append([]);
+# no necesario inicializar trabajando con diccionarios(???)
+# def init():
+#     for i in range(slots):
+#         hash_table.append([]);
+
 def hash_fn_mod(key: int) -> int:
     return key % slots
 
@@ -24,16 +26,31 @@ def hash_fn_truncate(key: int) -> str:
     return slot
 
 def insert(key: int):
+ 
+    # Diccionario
     slot = hash_fn_mod(key)
+    if slot not in hash_table: 
+        hash_table[slot] = []
     hash_table[slot].append(key)
+
+    # if slot not in hash_table: 
+    #     hash_table.append(slot)
+    # for i, slot_i in enumerate(hash_table):
+    #     if slot == slot_i:
+    #         hash_table[i].append(key)
+    #         break
 
 def search(key: int) -> int:
     slot = hash_fn_mod(key)
-    if key in hash_table[slot]:
-        return slot
-    else:
-        return -1
-
+    value = -1
+    for i, key_i in enumerate(hash_table[slot]):
+        if key_i == key:
+            value = slot, i
+    return value
+    # if key in hash_table[slot]:
+    #     return slot
+    # else:
+    #     return -1
 
 
 #print(hash_fn_midSquare(300))
