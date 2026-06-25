@@ -59,7 +59,7 @@ Divides a continuous multi-dimensional search coordinate space into uniform rect
 A space-partitioning data structure tha alternates geometric axis coordinate boundaries.
 The raw data is inserted by context (context fn).
 
-◘![KD-tree](../resorurses/images/kd-tree.gif)
+E![KD-tree](../resorurses/images/kd-tree.gif)
  
 ### In-Memory Index Tables 
 

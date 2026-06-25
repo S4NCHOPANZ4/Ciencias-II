@@ -1,23 +1,16 @@
-Dictionary Lookup
-
-Las palabras están ordenadas alfabéticamente.
-
-Responder consultas.
-
-Entrada
-
-apple
-banana
-car
-dog
-egg
-
-Consultas
-
-car
-cat
-
-Salida 
-
-Yes
-No
+#1 Registro de claves sin repetición
+Fácil
+hashing
+Dado un flujo de N enteros, determina cuántos son únicos usando una tabla hash.
+Enunciado
+Recibes N enteros (1 ≤ N ≤ 10⁵, 1 ≤ val ≤ 10⁶). 
+Imprime la cantidad de valores distintos.
+Ejemplo de entrada
+5
+3 7 3 2 7
+Salida esperada
+3
+Restricciones
+N ≤ 10⁵ · Valores ≤ 10⁶ · Tiempo O(N) esperado
+Método clave
+Tabla Hash (mod m + chaining)

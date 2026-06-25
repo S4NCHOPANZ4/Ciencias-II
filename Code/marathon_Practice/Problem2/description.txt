@@ -1,0 +1,15 @@
+#2 Primer duplicado
+Fácil
+hashing
+Encuentra el primer elemento que aparece por segunda vez en un arreglo.
+Enunciado
+Dado un arreglo de N enteros, imprime el primer elemento que se repite (por orden de aparición). Si no hay, imprime -1.
+Ejemplo de entrada
+6
+5 3 2 3 5 1
+Salida esperada
+3
+Restricciones
+N ≤ 10⁵ · Respeta orden de aparición · O(N) promedio
+Método clave
+Tabla Hash

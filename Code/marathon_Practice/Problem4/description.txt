@@ -1,0 +1,15 @@
+#13 Anagrama más frecuente
+Medio
+hashing
+Agrupa palabras por anagrama. Encuentra el grupo más grande.
+Enunciado
+N palabras. Agrúpalas: dos palabras son del mismo grupo si son anagramas entre sí. Imprime el tamaño del grupo más grande y una de sus palabras representativas.
+Ejemplo de entrada
+6
+eat tea tan ate nat bat
+Salida esperada
+3 eat
+Restricciones
+N ≤ 10⁵ · Longitud ≤ 20 · Solo minúsculas · O(N·L·log L)
+Método clave
+Tabla Hash (clave transformada)
