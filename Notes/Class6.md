@@ -73,3 +73,20 @@ A traversal that visits every vertex in the graph exactly one.
 
 NP-Complete, non polinomial problem. the more elements the more resourses it consumes (exponential)
 
+
+## Algorithms and Analysis
+
+### Graph Traversals and Pathfinding 
+
+Algorithm performance in graphs is dictated by the combined total Vertices and Edges.
+
+- BFS (Breadth-First) Shortest unweighted path time, Complexity O(V + E) type Traversal
+- DFS (Depth-First) Cycle detection, Maze , Complexity O(V + E) type Traversal
+- Dijkstra's Shortests weighted path O(V log E), type  Greedy
+- Kruskal's/ Prim's, Minmum Spanning Tree, Complexity  O(V log E), type  Greedy
+
+
+### Memory Representation Overhead 
+
+- Adjacency Matrix O(V**2) space Best for dense graphs
+- Adjacency List O(V + E) space Best for sparse graphs
