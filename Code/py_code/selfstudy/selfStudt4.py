@@ -1,4 +1,4 @@
-from collections inport deque
+from collections import deque
 
 n = 4 
 graph = [[0 for _ in range(n)] for _ in range(n)]
@@ -13,6 +13,14 @@ def hasEdge(graph, u, v):
 def removeEdge(graph,u,v):
     graph[u][v] = 0
     graph[v][u] = 0
+
+
+
+
+
+
+
+
 
 def printGraph(graph):
     for row in graph:
