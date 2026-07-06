@@ -229,6 +229,47 @@ void printPathMatrix(Graph* g) {
 
 
 }
+//Edge List
+
+int getEdgeList(Graph* g) {
+	int edgeCount = countEdges(g);
+	int edgList[edgeCount][2];
+	int edgeIndex = 0;
+	for (int i = 0; i < g->vertices && edgeIndex < edgeCount; i++) {
+		for (int j = 0; j < g->vertices && edgeIndex < edgeCount; j++) {
+			if (g->adjacencyMatrix[i][j] == 1) {
+				edgeList[edgeIndex][0] = i; // fuente
+				edgeList[edgeIndex][1] = j; // Dest
+			}
+		}
+	}
+	
+}
+
+void printCutSetMatrix(Graph* g) {
+	printf("\n=====Cut Matrix=====");
+	int edgeCount = countEdges(g);
+	if (edgeCount == 0) {
+		printf("douhhh");
+		return;
+	}
+	int cutsets = g->vertices - 1;
+	int cutsetMatrix[cutsets][edgeCount];
+
+
+	for (int i = 0; i < cutsets; i++) {
+		for (int j = 0; j < edgeCount; j++) {
+			cutsetMatrix[i][j] = 0;
+		}
+	}
+
+	int edgeList = getEdgeList(g);
+	for (int c = 0; c < cutsets; c++) {
+		for (int e = 0; e < edgeCount; e++) {
+
+		}
+	}
+}
 
 int main() {
 	int nodes;
