@@ -123,4 +123,33 @@ to-do
 
 
 
+# Class 9 - Unit 6
+
+**Dense Graphs**
+
+- Edges = VxV: use adjacency Matrix
+
+- Edges << VxV: use Adjacency lists
+
+**Note** Adjacency lists are harsh to manage in C.
+
+
+## Key Takeaways 
+
+**Graph Matrices** Provides mathematical richness for theoretical analysis but consum quadratic space.
+
+**Adjacency Structures** Lists and arrays offer linear space complexity and efficient algorithm.
+
+**Selection Criteria**
+
+- Graph Density
+- Operation frecuency
+- Memory constraints
+- Cache behavior requirements
+
+
+
+
+
+
 
