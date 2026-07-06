@@ -1,4 +1,4 @@
-from collections inport deque
+from collections import deque
 
 n = 4 
 graph = [[0 for _ in range(n)] for _ in range(n)]
