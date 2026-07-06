@@ -14,6 +14,14 @@ def removeEdge(graph,u,v):
     graph[u][v] = 0
     graph[v][u] = 0
 
+
+
+
+
+
+
+
+
 def printGraph(graph):
     for row in graph:
         print(row)
