@@ -1,98 +1,76 @@
 from typing import Any, Dict, List, Tuple, Set
 
 
-class WeightedGraph:
+class WightedGraph:
 
-    def __init__(self):
-        # Diccionario de adyacencia:
-        # vertice -> [(vecino, peso), ...]
+    def __int__(self):
         self.adjacency_list: Dict[Any, List[Tuple[Any, float]]] = {}
-
-        # Conjunto de vértices del grafo
         self.vertices: Set[Any] = set()
+        self.edges: Set[Tuple[Any,Any,float]]= set()
 
-        # Conjunto de aristas sin duplicados
-        # (vertice_menor, vertice_mayor, peso)
-        self.edges: Set[Tuple[Any, Any, float]] = set()
-
-    def add_vertex(self, vertex: Any):
-        """Agrega un nuevo vértice al grafo."""
-
+    def add_vertex(self, vertex:Any):
         if vertex not in self.vertices:
             self.vertices.add(vertex)
             self.adjacency_list[vertex] = []
         else:
-            print("Vertex already exists.")
-
-    def remove_vertex(self, vertex: Any):
-        """Elimina un vértice y todas sus conexiones."""
-
+            print("Vertex already exists")
+    
+    def remove_vertex(self, vertex):
         if vertex not in self.vertices:
-            print("Vertex not found.")
-            return
-
-        # Eliminar este vértice de la lista de vecinos
-        # de todos los vértices conectados.
+            print("Vertex not found")
+            return 
         for neighbor, _ in self.adjacency_list[vertex]:
             self.adjacency_list[neighbor] = [
-                (v, w)
-                for v, w in self.adjacency_list[neighbor]
-                if v != vertex
+                (v,w)
+                for v,w in self.adjacency_list[neighbor]
+                if v!= vertex
             ]
 
-        # Eliminar todas las aristas que contienen el vértice.
         self.edges = {
-            (u, v, w)
-            for (u, v, w) in self.edges
+            (u,v,w)
+            for (u,v,w) in self.edges
             if u != vertex and v != vertex
         }
 
-        # Finalmente eliminar el vértice.
         del self.adjacency_list[vertex]
         self.vertices.remove(vertex)
-
-    def add_weighted_edge(
+    
+    def add_weghted_edge(
         self,
-        vertex_1: Any,
-        vertex_2: Any,
+        vertex_1:Any,
+        vertex_2:Any,
         weight: float
     ):
-        """Agrega o actualiza una arista ponderada."""
-
         if vertex_1 == vertex_2:
-            print("A vertex cannot connect to itself.")
+            print("Vertex cannot connect itself.")
             return
 
         if weight < 0:
             print("Weight must be non-negative.")
-            return
+            return 
 
-        if vertex_1 not in self.vertices or vertex_2 not in self.vertices:
+        if (vertex_1 not in self.vertices) or (vertex_2 not in self.vertices):
             print("One or both vertices do not exist.")
             return
-
-        # Si la arista ya existía, eliminarla primero.
+        
         self.adjacency_list[vertex_1] = [
-            (v, w)
-            for v, w in self.adjacency_list[vertex_1]
+            (v,w)
+            for v,w in self.adjacency_list[vertex_1]
             if v != vertex_2
         ]
 
         self.adjacency_list[vertex_2] = [
-            (v, w)
-            for v, w in self.adjacency_list[vertex_2]
+            (v,w)
+            for v,w in self.adjacency_list[vertex_2]
             if v != vertex_1
         ]
 
-        # Agregar la nueva conexión en ambos sentidos
-        # porque el grafo es no dirigido.
         self.adjacency_list[vertex_1].append((vertex_2, weight))
         self.adjacency_list[vertex_2].append((vertex_1, weight))
 
-        # Eliminar la versión antigua de la arista del conjunto.
         self.edges = {
-            (u, v, w)
-            for (u, v, w) in self.edges
+            (u,v,w)
+            for (u,v,w) in self.edges 
             if not (
                 u == min(vertex_1, vertex_2)
                 and
@@ -100,7 +78,6 @@ class WeightedGraph:
             )
         }
 
-        # Guardar la nueva arista.
         edge = (
             min(vertex_1, vertex_2),
             max(vertex_1, vertex_2),
@@ -110,64 +87,54 @@ class WeightedGraph:
         self.edges.add(edge)
 
     def has_edge(self, vertex_1: Any, vertex_2: Any) -> bool:
-        """Verifica si existe una arista entre dos vértices."""
-
         if vertex_1 not in self.vertices or vertex_2 not in self.vertices:
-            print("One or both vertices do not exist.")
+            print("One or both vertices do not exist")
             return False
+    
+        min_v = min(vertex_1 , vertex_2)
+        max_v = max(vertex_1 , vertex_2)
 
-        min_v = min(vertex_1, vertex_2)
-        max_v = max(vertex_1, vertex_2)
-
-        # Buscar la arista dentro del conjunto.
         for u, v, _ in self.edges:
             if u == min_v and v == max_v:
                 return True
-
+        
         return False
 
     def remove_weighted_edge(self, vertex_1: Any, vertex_2: Any):
-        """Elimina una arista del grafo."""
-
         if vertex_1 not in self.vertices or vertex_2 not in self.vertices:
-            print("One or both vertices do not exist.")
-            return
+            print("One or both vertices do not exist")
+            return 
 
         if not self.has_edge(vertex_1, vertex_2):
-            print("Edge does not exist.")
-            return
-
-        # Eliminar la conexión de ambos vértices.
+            print("No edge was found")
+            return 
+        
         self.adjacency_list[vertex_1] = [
-            (v, w)
+            (v,w)
             for v, w in self.adjacency_list[vertex_1]
             if v != vertex_2
         ]
 
         self.adjacency_list[vertex_2] = [
-            (v, w)
+            (v,w)
             for v, w in self.adjacency_list[vertex_2]
             if v != vertex_1
         ]
 
-        min_v = min(vertex_1, vertex_2)
-        max_v = max(vertex_1, vertex_2)
+        min_v = min(vertex_1,vertex_2)
+        max_v = max(vertex_1,vertex_2)
 
-        # Eliminar la arista del conjunto.
         self.edges = {
-            (u, v, w)
-            for (u, v, w) in self.edges
+            (u,v,w)
+            for (u,v,w) in self.edges
             if not (u == min_v and v == max_v)
         }
 
     def get_neighbors(self, vertex: Any):
-        """Retorna los vecinos de un vértice junto con sus pesos."""
-
         if vertex not in self.vertices:
             return None
-
         return self.adjacency_list[vertex]
-
+        
     def __str__(self):
         """Representación del grafo como lista de adyacencia."""
 
@@ -176,4 +143,5 @@ class WeightedGraph:
         for vertex in sorted(self.vertices):
             result += f"{vertex}: {self.adjacency_list[vertex]}\n"
 
-        return result
+        return result    
+        
