@@ -1,6 +1,5 @@
 # 8 4
 # 1 2 1 2 1 1 1
-
 def solve():
     n, obj = list(map(int, input().split()))
     stops = list(map(int, input().split()))
